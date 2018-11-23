@@ -2,7 +2,7 @@
 title: "Kubernetes client-go: Updating and rolling back a deployment"
 author: nathan
 date: 2018-01-18 22:00
-template: article.jade
+template: article.pug
 ---
 
 <span class="more"></span>
