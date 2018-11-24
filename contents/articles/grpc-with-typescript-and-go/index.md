@@ -13,13 +13,10 @@ But direct `kubectl logs` may be restricted to Ops if your organization doesn't 
 
 Or, our end users might not be engineers at all, but still want something to send along with a report.
 
-So lets build a convenient webapp that lets anyone with a browser have the same functionality as `kubectl logs`.
+Either way it's a convenient excuse to build a webapp that gives anyone with a browser the same functionality as `kubectl logs`.
 
-Requests to the webapp will be routed from the browser to a Go service over gRPC. Then Go will make API requests to the kube api-server.
 
-```[ Browser ] -> [ Go service ]-> [ Kube api-server ]```
 
-The Go service could eventually bolt on business rules, auth, etc.
 
 ### Messaging
 
