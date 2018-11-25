@@ -1,37 +1,32 @@
-import { Card, CardContent, CardHeader } from '@material-ui/core';
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
+import { Shadows } from '@material-ui/core/styles/shadows';
 import * as React from 'react';
-import { Code } from './Code';
-import ReactMarkdown = require('react-markdown');
+import { Route, Switch } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
+import { Article } from './Article';
+import { Home } from './Home';
+import { withNavbar } from './Navbar';
 
-let a = require('../articles/asd.md');
+let a = require('../articles/grpc-with-typescript-and-go.md');
+
+const theme = createMuiTheme({
+    shadows: Array(25).fill('none') as Shadows,
+});
 
 interface AppProps {
 }
 
-interface AppState {
-    text: string;
-}
-
-export class App extends React.Component<AppProps, AppState> {
-
-    public readonly state: AppState = {
-        text: '',
-    };
-
-    componentDidMount() {
-        fetch(a).then((res) => res.text().then((text) => {
-            this.setState({text: text});
-        }));
-    }
-
+export class App extends React.PureComponent<AppProps> {
     render() {
-        return (
-            <Card>
-                <CardHeader title={'Building a webapp for pod logs: gRPC with Typescript and Go'}/>
-                <CardContent>
-                    <ReactMarkdown renderers={{'code': Code}} source={this.state.text}/>
-                </CardContent>
-            </Card>
-        );
+        return <MuiThemeProvider theme={theme}>
+            <BrowserRouter>
+                <Switch>
+                    <Route path="/articles" component={withNavbar(Article)}/>
+                    <Route path="/opinions" component={withNavbar(Article)}/>
+                    <Route path="/" component={withNavbar(Home)}/>
+                </Switch>
+            </BrowserRouter>
+        </MuiThemeProvider>;
+
     }
 }

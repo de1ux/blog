@@ -1,5 +1,3 @@
-
-
 One of the best tools for diagnosing failed Kubernetes deployments is with the log viewer, `kubectl logs`.
 
 But direct `kubectl logs` may be restricted to Ops if your organization doesn't allow engineers access to the Kubernetes cluster.
