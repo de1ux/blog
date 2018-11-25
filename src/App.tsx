@@ -1,4 +1,6 @@
+import { Card, CardContent, CardHeader } from '@material-ui/core';
 import * as React from 'react';
+import { Code } from './Code';
 import ReactMarkdown = require('react-markdown');
 
 let a = require('../articles/asd.md');
@@ -24,7 +26,12 @@ export class App extends React.Component<AppProps, AppState> {
 
     render() {
         return (
-            <ReactMarkdown source={this.state.text}/>
+            <Card>
+                <CardHeader title={'Building a webapp for pod logs: gRPC with Typescript and Go'}/>
+                <CardContent>
+                    <ReactMarkdown renderers={{'code': Code}} source={this.state.text}/>
+                </CardContent>
+            </Card>
         );
     }
 }

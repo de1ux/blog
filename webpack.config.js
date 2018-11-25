@@ -74,7 +74,7 @@ module.exports = function makeWebpackConfig() {
             jQuery: "jquery",
             jquery: "jquery",
             "window.jQuery": "jquery"
-        })
+        }, 'vendor.js', Infinity)
     ];
 
     config.devServer = {

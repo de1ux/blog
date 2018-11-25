@@ -18,7 +18,7 @@ The Go service could eventually bolt on business rules, auth, etc.
 
 The gRPC messages the browser will use to request logs from the Go service must be defined:
 
-```proto
+```protobuf
 syntax="proto3";
 
 message Empty {}
