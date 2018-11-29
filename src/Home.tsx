@@ -5,79 +5,72 @@ import FolderOpenIcon from '@material-ui/icons/FolderOpen';
 import SubjectIcon from '@material-ui/icons/Subject';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import { loadPostMeta, PostMeta, PostType } from './Posts';
 
-interface HomeState {
-    tutorialsOpen: boolean;
-    opinionsOpen: boolean;
-}
+export class Home extends React.Component<{}, {}> {
+    private metaByType: Map<string, Array<PostMeta>>;
 
-export class Home extends React.Component<{}, HomeState> {
-    public readonly state: HomeState = {
-        tutorialsOpen: true,
-        opinionsOpen: true,
-    };
+    constructor(props: {}) {
+        super(props);
+        this.metaByType = new Map<string, Array<PostMeta>>();
+        this.state = {};
 
-    toggleTutorials = () => this.setState({tutorialsOpen: !this.state.tutorialsOpen});
-    toggleOpinions = () => this.setState({opinionsOpen: !this.state.opinionsOpen});
+        for (let m of loadPostMeta()) {
+            if (this.metaByType[m.type] === undefined) {
+                this.metaByType[m.type] = [];
+                this.state[m.type] = true;
+            }
+            this.metaByType[m.type].push(m);
+
+        }
+    }
+
+    toggleCollapse = (key: string) => () =>
+        this.setState({[key]: !this.state[key]});
+
+
+    renderFolder(meta: Array<PostMeta>, type: PostType) {
+        return <div key={`folder-${type}`}>
+            <ListItem button onClick={this.toggleCollapse(type)}>
+                <ListItemAvatar>
+                    {this.state[type] ? <FolderOpenIcon/> : <FolderIcon/>}
+                </ListItemAvatar>
+                <ListItemText>
+                    {type}
+                </ListItemText>
+            </ListItem>
+            <Collapse in={this.state[type]}>
+                <List>
+                    {meta.map((m: PostMeta) => {
+                        return this.renderItem(m);
+                    })}
+                </List>
+            </Collapse>
+        </div>;
+    }
+
+    renderItem(meta: PostMeta) {
+        return <Link key={`item-${meta.urlTitle}`} to={`${meta.type}/${meta.urlTitle}`} style={{textDecoration: 'none'}}>
+            <ListItem button style={{marginLeft: '20px'}}>
+                <ListItemIcon>
+                    <SubjectIcon/>
+                </ListItemIcon>
+                <ListItemText inset>
+                    {meta.humanTitle}
+                </ListItemText>
+            </ListItem>
+        </Link>;
+    }
 
     render() {
+
         return <Card>
             <CardContent style={{fontFamily: 'Montserrat', fontSize: '16px'}}>
                 <List>
-                    <ListItem button onClick={this.toggleTutorials}>
-                        <ListItemAvatar>
-                            {this.state.tutorialsOpen ? <FolderOpenIcon/> : <FolderIcon/>}
-                        </ListItemAvatar>
-                        <ListItemText>
-                            tutorials
-                        </ListItemText>
-                    </ListItem>
-                    <Collapse in={this.state.tutorialsOpen}>
-                        <List>
-                            <Link to={'articles/grpc-with-typescript-and-go.md'} style={{textDecoration: 'none'}}>
-                                <ListItem button style={{marginLeft: '20px'}}>
-                                    <ListItemIcon>
-                                        <SubjectIcon/>
-                                    </ListItemIcon>
-                                    <ListItemText inset>
-                                        Building a webapp for pod logs: gRPC with Typescript and Go
-                                    </ListItemText>
-                                </ListItem>
-                            </Link>
-                            <Link to={'articles/kubernetes-go-creating-updating-rolling-back.md'} style={{textDecoration: 'none'}}>
-                                <ListItem button style={{marginLeft: '20px'}}>
-                                    <ListItemIcon>
-                                        <SubjectIcon/>
-                                    </ListItemIcon>
-                                    <ListItemText inset>
-                                        Kubernetes client-go: Updating and rolling back a deployment
-                                    </ListItemText>
-                                </ListItem>
-                            </Link>
-                        </List>
-                    </Collapse>
-                    <ListItem button onClick={this.toggleOpinions}>
-                        <ListItemAvatar>
-                            {this.state.opinionsOpen ? <FolderOpenIcon/> : <FolderIcon/>}
-                        </ListItemAvatar>
-                        <ListItemText>
-                            opinions
-                        </ListItemText>
-                    </ListItem>
-                    <Collapse in={this.state.opinionsOpen}>
-                        <List>
-                            <Link to={'opinions/what-i-learned-from-a-year-of-devops.md'} style={{textDecoration: 'none'}}>
-                                <ListItem button style={{marginLeft: '20px'}}>
-                                    <ListItemIcon>
-                                        <SubjectIcon/>
-                                    </ListItemIcon>
-                                    <ListItemText inset>
-                                        What I learned from a year of DevOps
-                                    </ListItemText>
-                                </ListItem>
-                            </Link>
-                        </List>
-                    </Collapse>
+                    {Object.keys(this.metaByType).map((key: string) => {
+                        let meta = this.metaByType[key];
+                        return this.renderFolder(meta, key as PostType);
+                    })}
                 </List>
             </CardContent>
         </Card>;

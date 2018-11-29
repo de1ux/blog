@@ -7,8 +7,6 @@ import { Article } from './Article';
 import { Home } from './Home';
 import { withNavbar } from './Navbar';
 
-let a = require('../articles/grpc-with-typescript-and-go.md');
-
 const theme = createMuiTheme({
     shadows: Array(25).fill('none') as Shadows,
 });
@@ -21,7 +19,7 @@ export class App extends React.PureComponent<AppProps> {
         return <MuiThemeProvider theme={theme}>
             <BrowserRouter>
                 <Switch>
-                    <Route path="/articles" component={withNavbar(Article)}/>
+                    <Route path="/tutorials" component={withNavbar(Article)}/>
                     <Route path="/opinions" component={withNavbar(Article)}/>
                     <Route path="/" component={withNavbar(Home)}/>
                 </Switch>

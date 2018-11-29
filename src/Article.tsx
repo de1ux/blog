@@ -30,15 +30,13 @@ export class Article extends React.Component<ArticleProps & RouteProps, ArticleS
     }
 
     render() {
-        return <div>
-            <Card>
-                {this.state.post && <div>
-                    <CardHeader style={{fontFamily: 'Montserrat'}} title={this.state.post.humanTitle}/>
-                    <CardContent style={{fontFamily: 'Montserrat', fontSize: '16px'}}>
-                        <ReactMarkdown renderers={{'code': Code}} source={this.state.post.text}/>
-                    </CardContent>
-                </div>}
-            </Card>
-        </div>;
+        return <Card>
+            {this.state.post && <div>
+                <CardHeader style={{fontFamily: 'Montserrat'}} title={this.state.post.humanTitle}/>
+                <CardContent style={{fontFamily: 'Montserrat', fontSize: '16px'}}>
+                    <ReactMarkdown renderers={{'code': Code}} source={this.state.post.text}/>
+                </CardContent>
+            </div>}
+        </Card>;
     }
 }

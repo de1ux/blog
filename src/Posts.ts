@@ -1,56 +1,58 @@
-enum PostType {
-    Opinion,
-    Tutorial,
+export enum PostType {
+    Opinion = 'opinions',
+    Tutorial = 'tutorials',
 }
 
-export interface Post {
+export interface PostMeta {
     humanTitle: string;
-    src: string;
+    urlTitle: string;
     type: PostType;
-    text?: string;
 }
 
-export function loadPostFromLocation(location: string): Promise<Post> {
-    return new Promise((resolve, reject) => {
-        let isArticle = location.indexOf('articles/') > 0;
-        let isOpinion = location.indexOf('opinions/') > 0;
-        if (!isArticle && !isOpinion) {
-            return reject('Not article or opinion');
-        }
-        let prefix = isOpinion ? 'opinions/' : 'articles/';
-        let resource = location.split(prefix).pop();
-
-        let post = posts.find((p: Post) => {
-            return p.src === resource;
-        });
-
-        if (post === undefined) {
-            return reject( 'Post not found');
-        }
-
-        return fetch(`/raw/${prefix}${post.src}`).then((res) => res.text().then((text) => {
-            post!!.text = text;
-            resolve(post);
-        }));
-    });
-
+export interface Post extends PostMeta {
+    text: string;
 }
 
-export const posts: Array<Post> = [
+const postMetas: Array<PostMeta> = [
     {
         humanTitle: 'Kubernetes client-go: Updating and rolling back a deployment',
-        src: 'kubernetes-go-creating-updating-rolling-back.md',
+        urlTitle: 'kubernetes-go-creating-updating-rolling-back.md',
         type: PostType.Tutorial,
     },
     {
         humanTitle: 'Building a webapp for pod logs: gRPC with Typescript and Go',
-        src: 'grpc-with-typescript-and-go.md',
+        urlTitle: 'grpc-with-typescript-and-go.md',
         type: PostType.Tutorial,
     },
     {
-        humanTitle: 'What I learned from a year of DevOps',
-        src: 'what-i-learned-from-a-year-of-devops.md',
+        humanTitle: 'A year of DevOps: Musings from a software developer',
+        urlTitle: 'what-i-learned-from-a-year-of-devops.md',
         type: PostType.Opinion,
     }
 ];
 
+export function loadPostMeta(): Array<PostMeta> {
+    return postMetas.slice();
+}
+
+export function loadPostFromLocation(location: string): Promise<Post> {
+    return new Promise((resolve, reject) => {
+        let postType = Object.values(PostType).find((p: string) => location.indexOf(p) > 0);
+        if (!postType) {
+            return reject(`Cant find a PostType (${Object.values(PostType)}) in ${location}`);
+        }
+
+        let urlTitle = location.split(postType + '/').pop();
+        let postMeta = loadPostMeta().find((p: PostMeta) => p.urlTitle === urlTitle);
+        if (postMeta === undefined) {
+            return reject('Post not found');
+        }
+
+        fetch(`/raw/${postType}/${postMeta!!.urlTitle}`)
+            .then((res) => res.text())
+            .then((text: string) => {
+                return resolve({...postMeta, text: text} as Post);
+            })
+            .catch((reason) => reject(reason));
+    });
+}

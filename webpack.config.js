@@ -25,7 +25,7 @@ module.exports = function makeWebpackConfig() {
             {test: /\.tsx?$/, loader: "awesome-typescript-loader"},
             {test: /\.css$/, loader: "style-loader!css-loader"},
             {
-                test: /\.(md|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
+                test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
                 loader: 'file-loader'
             }
         ]
@@ -33,7 +33,7 @@ module.exports = function makeWebpackConfig() {
 
     config.plugins = [
         new CopyWebpackPlugin([
-            {from: 'articles', to: 'raw/articles'},
+            {from: 'tutorials', to: 'raw/tutorials'},
             {from: 'opinions', to: 'raw/opinions'}
         ]),
         new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'vendor.min.js'}),
@@ -41,9 +41,7 @@ module.exports = function makeWebpackConfig() {
 
     config.devServer = {
         host: '0.0.0.0',
-        contentBase: [
-            __dirname,
-        ],
+        historyApiFallback: true,
         stats: 'minimal',
         port: 9009
     };
