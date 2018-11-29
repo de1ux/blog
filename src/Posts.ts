@@ -1,3 +1,5 @@
+import 'whatwg-fetch';
+
 export enum PostType {
     Opinion = 'opinions',
     Tutorial = 'tutorials',
@@ -37,18 +39,20 @@ export function loadPostMeta(): Array<PostMeta> {
 
 export function loadPostFromLocation(location: string): Promise<Post> {
     return new Promise((resolve, reject) => {
-        let postType = Object.values(PostType).find((p: string) => location.indexOf(p) > 0);
+        let postType = Object.keys(PostType).find((p: string) => location.indexOf(PostType[p]) > 0);
         if (!postType) {
-            return reject(`Cant find a PostType (${Object.values(PostType)}) in ${location}`);
+            return reject(`Cant find a PostType (${Object.keys(PostType)}) in ${location}`);
         }
 
-        let urlTitle = location.split(postType + '/').pop();
+        let postTypeString = PostType[postType];
+
+        let urlTitle = location.split(postTypeString + '/').pop();
         let postMeta = loadPostMeta().find((p: PostMeta) => p.urlTitle === urlTitle);
         if (postMeta === undefined) {
             return reject('Post not found');
         }
 
-        fetch(`/raw/${postType}/${postMeta!!.urlTitle}`)
+        fetch(`/raw/${postTypeString}/${postMeta!!.urlTitle}`)
             .then((res) => res.text())
             .then((text: string) => {
                 return resolve({...postMeta, text: text} as Post);

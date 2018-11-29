@@ -13,7 +13,7 @@ module.exports = function makeWebpackConfig() {
     };
 
     // Enable sourcemaps for debugging webpack's output.
-    config.devtool = 'eval-source-map';
+    //config.devtool = 'eval-source-map';
 
     config.resolve = {
         // Add '.ts' and '.tsx' as resolvable extensions.
@@ -37,6 +37,7 @@ module.exports = function makeWebpackConfig() {
             {from: 'opinions', to: 'raw/opinions'}
         ]),
         new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'vendor.min.js'}),
+        new webpack.optimize.UglifyJsPlugin(),
     ];
 
     config.devServer = {
