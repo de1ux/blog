@@ -1,12 +1,3 @@
----
-title: "Building a webapp for pod logs: gRPC with Typescript and Go"
-author: nathan
-date: 2018-11-22 19:08
-template: article.pug
----
-
-<span class="more"></span>
-
 One of the best tools for diagnosing failed Kubernetes deployments is with the log viewer, `kubectl logs`.
 
 But direct `kubectl logs` may be restricted to Ops if your organization doesn't allow engineers access to the Kubernetes cluster.
@@ -22,7 +13,7 @@ Either way it's a convenient excuse to build a webapp that gives anyone with a b
 
 The gRPC messages the browser will use to request logs from the Go service must be defined:
 
-```proto
+```protobuf
 syntax="proto3";
 
 message Empty {}

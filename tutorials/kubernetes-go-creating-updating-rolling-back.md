@@ -1,12 +1,3 @@
----
-title: "Kubernetes client-go: Updating and rolling back a deployment"
-author: nathan
-date: 2018-01-18 22:00
-template: article.pug
----
-
-<span class="more"></span>
-
 ### WARNING
 All of this was written during version 6.0 of the Kubernetes client. The information here may be out of date: ymmv
 
