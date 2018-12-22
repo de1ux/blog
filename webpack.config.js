@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = function makeWebpackConfig() {
     let config = {};
@@ -32,11 +33,13 @@ module.exports = function makeWebpackConfig() {
     };
 
     config.plugins = [
+
+        //new BundleAnalyzerPlugin(),
+        new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'vendor.min.js'}),
         new CopyWebpackPlugin([
             {from: 'tutorials', to: 'raw/tutorials'},
             {from: 'opinions', to: 'raw/opinions'}
         ]),
-        new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'vendor.min.js'}),
         new webpack.optimize.UglifyJsPlugin(),
     ];
 

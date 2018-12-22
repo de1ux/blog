@@ -57,7 +57,7 @@
     ]
   },
   "scripts": {
-    "release": "webpack",
+    "release": "webpack -p",
     "start": "webpack-dev-server",
     "test": "jest",
     "testDebug": "node --inspect-brk ./node_modules/.bin/jest --runInBand"
