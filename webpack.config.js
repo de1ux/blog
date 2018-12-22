@@ -34,13 +34,20 @@ module.exports = function makeWebpackConfig() {
 
     config.plugins = [
 
-        //new BundleAnalyzerPlugin(),
-        new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'vendor.min.js'}),
-        new CopyWebpackPlugin([
+        new BundleAnalyzerPlugin(),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+            filename: 'vendor.min.js',
+            minChunks(module, count) {
+                var context = module.context;
+                return context && context.indexOf('node_modules') >= 0;
+            },
+        }),
+        /*new CopyWebpackPlugin([
             {from: 'tutorials', to: 'raw/tutorials'},
             {from: 'opinions', to: 'raw/opinions'}
         ]),
-        new webpack.optimize.UglifyJsPlugin(),
+        new webpack.optimize.UglifyJsPlugin(),*/
     ];
 
     config.devServer = {
