@@ -18,17 +18,22 @@ export interface Post extends PostMeta {
 const postMetas: Array<PostMeta> = [
     {
         humanTitle: 'Kubernetes client-go: Updating and rolling back a deployment',
-        urlTitle: 'kubernetes-go-creating-updating-rolling-back.md',
+        urlTitle: 'kubernetes-go-creating-updating-rolling-back',
         type: PostType.Tutorial,
     },
     {
-        humanTitle: 'Building a webapp for pod logs: gRPC with Typescript and Go',
-        urlTitle: 'grpc-with-typescript-and-go.md',
+        humanTitle: 'Part 1 - Building a webapp for pod logs: gRPC with Typescript and Go',
+        urlTitle: 'grpc-with-typescript-and-go-part-1',
+        type: PostType.Tutorial,
+    },
+    {
+        humanTitle: 'Part 2 - Building a webapp for pod logs: gRPC with Typescript and Go',
+        urlTitle: 'grpc-with-typescript-and-go-part-2',
         type: PostType.Tutorial,
     },
     {
         humanTitle: 'A year of DevOps: Musings from a software developer',
-        urlTitle: 'what-i-learned-from-a-year-of-devops.md',
+        urlTitle: 'what-i-learned-from-a-year-of-devops',
         type: PostType.Opinion,
     }
 ];
@@ -52,7 +57,7 @@ export function loadPostFromLocation(location: string): Promise<Post> {
             return reject('Post not found');
         }
 
-        fetch(`/raw/${postTypeString}/${postMeta!!.urlTitle}`)
+        fetch(`/raw/${postTypeString}/${postMeta!!.urlTitle}.md`)
             .then((res) => res.text())
             .then((text: string) => {
                 return resolve({...postMeta, text: text} as Post);

@@ -9,9 +9,11 @@ export const withNavbar = <P extends object>(Component: React.ComponentType<P>) 
                 <Grid container alignItems={'center'} justify={'center'} spacing={24}>
                     <Grid item xs={12}>
                         <Link style={{textDecoration: 'none'}} to={'/'}>
-                        <Card>
-                            <CardHeader style={{fontFamily: 'Montserrat', textAlign: 'center'}} title={'de1ux'} subheader={'Learning how to blog in 2018'}/>
-                        </Card>
+                            <Card>
+                                <CardHeader style={{fontFamily: 'Montserrat', textAlign: 'center'}} title={'de1ux'} subheader={
+                                    <span>Learning how to blog in <s>2018</s> 2019</span>
+                                }/>
+                            </Card>
                         </Link>
                     </Grid>
                     <Grid zeroMinWidth>

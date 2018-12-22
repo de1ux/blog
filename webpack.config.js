@@ -36,15 +36,28 @@ module.exports = function makeWebpackConfig() {
             {from: 'tutorials', to: 'raw/tutorials'},
             {from: 'opinions', to: 'raw/opinions'}
         ]),
-        new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'vendor.min.js'}),
-        new webpack.optimize.UglifyJsPlugin(),
     ];
+
+    if (process.env.NODE_ENV === 'production') {
+        config.plugins = config.plugins.concat([
+            new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'vendor.min.js'}),
+            new webpack.optimize.UglifyJsPlugin()
+        ])
+    }
 
     config.devServer = {
         host: '0.0.0.0',
         historyApiFallback: true,
         stats: 'minimal',
-        port: 9009
+        port: 9009,
+        watchOptions: {
+            ignored: [
+                __dirname + 'dist',
+                __dirname + 'node_modules',
+                __dirname + 'articles',
+                __dirname + 'opinions',
+            ]
+        },
     };
 
     return config;
