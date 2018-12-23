@@ -16,14 +16,16 @@ The gRPC messages the browser will use to request logs from the Go service must 
 ```protobuf
 syntax="proto3";
 
-message Empty {}
+message LogsRequest {
+    string podName = 1;
+}
 
 message Logs {
   repeated string data = 1;
 }
 
 service LogService {
-  rpc GetLogs(Empty) returns (Logs);
+  rpc GetLogs(LogsRequest) returns (Logs);
 }
 ```
 
@@ -83,7 +85,7 @@ import (
 
 type service struct{}
 
-func (service) GetLogs(context.Context, *api.Empty) (*api.Logs, error) {
+func (service) GetLogs(_ context.Context, request *api.LogsRequest) (*api.Logs, error) {
     panic("implement me")
 }
 
@@ -106,14 +108,11 @@ func main() {
 ```
 
 `main.go` does a few things
-* Implements the service interface we generated from our protobuf (my IDE did this automatically)
+* Implements the service interface we generated from our protobuf
 * Creates a server
 * Registers the service implementation with the server
-* Wraps the server with gRPC-web functionality ([docs](https://github.com/improbable-eng/grpc-web/tree/master/go/grpcweb))
+* Wraps the server with gRPC-web compatibility ([link](https://github.com/improbable-eng/grpc-web/tree/master/go/grpcweb), [further reading](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-WEB.md))
 
 ### Next
 
-In the next part, we'll write something useful for the GetLogs endpoint and build the frontend.
-
-
-
+[In the next part, we'll write something useful for the GetLogs endpoint and build the frontend.](/tutorials/grpc-with-typescript-and-go-part-2)

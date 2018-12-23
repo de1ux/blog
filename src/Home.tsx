@@ -16,12 +16,11 @@ export class Home extends React.Component<{}, {}> {
         this.state = {};
 
         for (let m of loadPostMeta()) {
-            if (this.metaByType[m.type] === undefined) {
+            if (!this.metaByType[m.type]) {
                 this.metaByType[m.type] = [];
                 this.state[m.type] = true;
             }
             this.metaByType[m.type].push(m);
-
         }
     }
 
@@ -41,9 +40,7 @@ export class Home extends React.Component<{}, {}> {
             </ListItem>
             <Collapse in={this.state[type]}>
                 <List>
-                    {meta.map((m: PostMeta) => {
-                        return this.renderItem(m);
-                    })}
+                    {meta.map(m => this.renderItem(m))}
                 </List>
             </Collapse>
         </div>;
@@ -63,14 +60,12 @@ export class Home extends React.Component<{}, {}> {
     }
 
     render() {
-
         return <Card>
             <CardContent style={{fontFamily: 'Montserrat', fontSize: '16px'}}>
                 <List>
-                    {Object.keys(this.metaByType).map((key: string) => {
-                        let meta = this.metaByType[key];
-                        return this.renderFolder(meta, key as PostType);
-                    })}
+                    {Object.keys(this.metaByType).map(key =>
+                         this.renderFolder(this.metaByType[key], key as PostType)
+                    )}
                 </List>
             </CardContent>
         </Card>;
