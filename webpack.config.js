@@ -1,4 +1,4 @@
-const webpack = require('webpack');
+//const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
@@ -14,7 +14,7 @@ module.exports = function makeWebpackConfig() {
     };
 
     // Enable sourcemaps for debugging webpack's output.
-    //config.devtool = 'eval-source-map';
+    config.devtool = 'eval-source-map';
 
     config.resolve = {
         // Add '.ts' and '.tsx' as resolvable extensions.
@@ -33,29 +33,25 @@ module.exports = function makeWebpackConfig() {
     };
 
     config.plugins = [
-
-        new BundleAnalyzerPlugin(),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            filename: 'vendor.min.js',
-            minChunks(module, count) {
-                var context = module.context;
-                return context && context.indexOf('node_modules') >= 0;
-            },
-        }),
-        /*new CopyWebpackPlugin([
+        new CopyWebpackPlugin([
             {from: 'tutorials', to: 'raw/tutorials'},
-            {from: 'opinions', to: 'raw/opinions'}
+            {from: 'opinions', to: 'raw/opinions'},
+            {from: 'images', to: 'images'}
         ]),
-        new webpack.optimize.UglifyJsPlugin(),*/
     ];
 
-    if (process.env.NODE_ENV === 'production') {
-        config.plugins = config.plugins.concat([
-            new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'vendor.min.js'}),
-            new webpack.optimize.UglifyJsPlugin()
-        ])
-    }
+    config.optimization = {
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    chunks: 'initial',
+                    name: 'vendor',
+                    test: /[\\/]node_modules[\\/]/,
+                    enforce: true
+                },
+            }
+        }
+    };
 
     config.devServer = {
         host: '0.0.0.0',
@@ -68,6 +64,7 @@ module.exports = function makeWebpackConfig() {
                 __dirname + 'node_modules',
                 __dirname + 'articles',
                 __dirname + 'opinions',
+                 __dirname + 'images',
             ]
         },
     };

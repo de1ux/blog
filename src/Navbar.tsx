@@ -7,7 +7,7 @@ export const withNavbar = <P extends object>(Component: React.ComponentType<P>) 
         render() {
             return <div>
                 <Grid container alignItems={'center'} justify={'center'} spacing={24}>
-                    <Grid item xs={12}>
+                    <Grid xs={12}>
                         <Link style={{textDecoration: 'none'}} to={'/'}>
                             <Card>
                                 <CardHeader style={{fontFamily: 'Montserrat', textAlign: 'center'}} title={'de1ux'} subheader={
@@ -16,7 +16,7 @@ export const withNavbar = <P extends object>(Component: React.ComponentType<P>) 
                             </Card>
                         </Link>
                     </Grid>
-                    <Grid zeroMinWidth>
+                    <Grid xs={12}>
                         <Component {...this.props} />
                     </Grid>
                 </Grid>

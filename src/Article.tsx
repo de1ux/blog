@@ -1,9 +1,10 @@
 import { Card, CardContent, CardHeader } from '@material-ui/core';
 import * as React from 'react';
+import * as ReactMarkdown from 'react-markdown';
 import { RouteProps } from 'react-router';
-import { Code } from './Code';
+import { ArticleCode } from './ArticleCode';
+import { ArticleImage } from './ArticleImage';
 import { loadPostFromLocation, Post } from './Posts';
-import ReactMarkdown = require('react-markdown');
 
 interface ArticleProps {
 }
@@ -34,7 +35,10 @@ export class Article extends React.Component<ArticleProps & RouteProps, ArticleS
             {this.state.post && <div>
                 <CardHeader style={{fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif'}} title={this.state.post.humanTitle}/>
                 <CardContent style={{fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif', fontSize: '16px'}}>
-                    <ReactMarkdown renderers={{'code': Code}} source={this.state.post.text}/>
+                    <ReactMarkdown renderers={{
+                        'code': ArticleCode,
+                        'image': ArticleImage
+                    }} source={this.state.post.text}/>
                 </CardContent>
             </div>}
         </Card>;

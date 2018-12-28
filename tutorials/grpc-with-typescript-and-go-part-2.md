@@ -9,7 +9,7 @@ In [part 1](/tutorials/grpc-with-typescript-and-go-part-1) we:
 Right now, our `GetLogs` method is not very interesting.
 
 ```go
-func (service) GetLogs(_ context.Context, request *api.LogsRequest) (*api.Logs, error) {
+func (service) GetLogs(_ context.Context, request *api.GetLogsRequest) (*api.GetLogsResponse, error) {
     panic("implement me")
 }
 ```
@@ -47,7 +47,7 @@ If you prefer, `client-go` also exposes a `GetLogs` [method](https://github.com/
 
 Now consume our new functions in `GetLogs`
 ```go
-func (service) GetLogs(_ context.Context, request *api.LogsRequest) (*api.Logs, error) {
+func (service) GetLogs(_ context.Context, request *api.GetLogsRequest) (*api.GetLogsResponse, error) {
     client, err := getClientSet()
     if err != nil {
         return nil, status.Errorf(codes.Internal, "Failed to create clientset: %s", err)
@@ -64,7 +64,7 @@ func (service) GetLogs(_ context.Context, request *api.LogsRequest) (*api.Logs, 
     }
 
     lines := strings.Split(string(b), "\n")
-    return &api.Logs{Data: lines}, nil
+    return &api.GetLogsResponse{Data: lines}, nil
 }
 ```
 Each RPC to `GetLogs` will
@@ -107,7 +107,7 @@ func main() {
     grpcServer := grpc.NewServer()
 
     s := &service{}
-    logs, err := s.GetLogs(context.Background(), &api.LogsRequest{PodName: "random-logger-7f68f7949-88zrw"})
+    logs, err := s.GetLogs(context.Background(), &api.GetLogsRequest{PodName: "random-logger-7f68f7949-88zrw"})
     if err != nil {
         panic(err)
     }
@@ -127,4 +127,4 @@ Which outputs
 ...
 ```
 
-In the next part, we'll build a Typescript client to tie all the pieces together and produce a working app!
+[Next we'll build a Typescript client to tie all the pieces together and produce a working app](/tutorials/grpc-with-typescript-and-go-part-3)

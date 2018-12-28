@@ -32,6 +32,11 @@ const postMetas: Array<PostMeta> = [
         type: PostType.Tutorial,
     },
     {
+        humanTitle: 'Part 3 - Building a webapp for pod logs: gRPC with Typescript and Go',
+        urlTitle: 'grpc-with-typescript-and-go-part-3',
+        type: PostType.Tutorial,
+    },
+    {
         humanTitle: 'A year of DevOps: Musings from a software developer',
         urlTitle: 'what-i-learned-from-a-year-of-devops',
         type: PostType.Opinion,

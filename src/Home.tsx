@@ -1,14 +1,18 @@
-import { Card, CardContent, Collapse, List, ListItem, ListItemAvatar, ListItemText } from '@material-ui/core';
+import { Card, CardContent, Collapse, Grid, List, ListItem, ListItemAvatar, ListItemText } from '@material-ui/core';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import FolderIcon from '@material-ui/icons/Folder';
 import FolderOpenIcon from '@material-ui/icons/FolderOpen';
 import SubjectIcon from '@material-ui/icons/Subject';
 import * as React from 'react';
+import { createRef } from 'react';
 import { Link } from 'react-router-dom';
 import { loadPostMeta, PostMeta, PostType } from './Posts';
+import { Toys } from './Toys';
 
 export class Home extends React.Component<{}, {}> {
     private metaByType: Map<string, Array<PostMeta>>;
+    private gridRef = createRef<HTMLDivElement>();
+;
 
     constructor(props: {}) {
         super(props);
@@ -60,14 +64,21 @@ export class Home extends React.Component<{}, {}> {
     }
 
     render() {
-        return <Card>
-            <CardContent style={{fontFamily: 'Montserrat', fontSize: '16px'}}>
-                <List>
-                    {Object.keys(this.metaByType).map(key =>
-                         this.renderFolder(this.metaByType[key], key as PostType)
-                    )}
-                </List>
-            </CardContent>
-        </Card>;
+        return <div ref={this.gridRef}>
+            <Grid container justify={'center'} alignItems={'center'}>
+                <Grid xs={10} item>
+                    <Toys parent={this.gridRef.current}/>
+                    <Card>
+                        <CardContent style={{fontFamily: 'Montserrat', fontSize: '16px'}}>
+                            <List>
+                                {Object.keys(this.metaByType).map(key =>
+                                    this.renderFolder(this.metaByType[key], key as PostType)
+                                )}
+                            </List>
+                        </CardContent>
+                    </Card>
+                </Grid>
+            </Grid>
+        </div>;
     }
 }

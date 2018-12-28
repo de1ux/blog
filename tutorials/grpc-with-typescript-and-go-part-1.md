@@ -6,9 +6,6 @@ Or, our end users might not be engineers at all, but still want something to sen
 
 Either way it's a convenient excuse to build a webapp that gives anyone with a browser the same functionality as `kubectl logs`.
 
-
-
-
 ### Messaging
 
 The gRPC messages the browser will use to request logs from the Go service must be defined:
@@ -16,16 +13,16 @@ The gRPC messages the browser will use to request logs from the Go service must 
 ```protobuf
 syntax="proto3";
 
-message LogsRequest {
+message GetLogsRequest {
     string podName = 1;
 }
 
-message Logs {
+message GetLogsResponse {
   repeated string data = 1;
 }
 
 service LogService {
-  rpc GetLogs(LogsRequest) returns (Logs);
+  rpc GetLogs(GetLogsRequest) returns (GetLogsResponse);
 }
 ```
 
@@ -85,7 +82,7 @@ import (
 
 type service struct{}
 
-func (service) GetLogs(_ context.Context, request *api.LogsRequest) (*api.Logs, error) {
+func (service) GetLogs(_ context.Context, request *api.GetLogsRequest) (*api.GetLogsResponse, error) {
     panic("implement me")
 }
 

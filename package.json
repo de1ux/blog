@@ -20,7 +20,7 @@
     "@types/react-dom": "^16.0.9",
     "@types/react-router-dom": "^4.3.1",
     "autoprefixer": "7.1.0",
-    "awesome-typescript-loader": "^3.2.1",
+    "awesome-typescript-loader": "^5.2.1",
     "case-sensitive-paths-webpack-plugin": "2.0.0",
     "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^0.28.1",
@@ -46,9 +46,10 @@
     "tslint-loader": "^3.5.3",
     "tslint-react": "^3.0.0",
     "typescript": "^2.9.2",
-    "webpack": "2.6.0",
+    "webpack": "^4.28.2",
     "webpack-bundle-analyzer": "^3.0.3",
-    "webpack-dev-server": "2.4.5",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.13",
     "whatwg-fetch": "^2.0.3"
   },
   "babel": {

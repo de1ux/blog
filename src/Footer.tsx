@@ -1,4 +1,4 @@
-import { Card, CardContent } from '@material-ui/core';
+import { Card, Typography } from '@material-ui/core';
 import * as React from 'react';
 
 export const withFooter = <P extends object>(Component: React.ComponentType<P>) => {
@@ -7,9 +7,9 @@ export const withFooter = <P extends object>(Component: React.ComponentType<P>) 
             return <div>
                 <Component {...this.props} />
                 <Card>
-                    <CardContent style={{textAlign: 'center'}}>
-                        Send me <a href='mailto:evans.nathan.j@gmail.com'>an email</a> to get notified of new posts!
-                    </CardContent>
+                    <Typography style={{textAlign: 'center'}}>
+                        Send me <a href="mailto:evans.nathan.j@gmail.com">an email</a> to get notified of new posts!
+                    </Typography>
                 </Card>
             </div>;
         }
