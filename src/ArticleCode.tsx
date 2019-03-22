@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { createRef } from 'react';
 import * as Prism from 'prismjs';
 
 require('../node_modules/prismjs/themes/prism-tomorrow.css');
@@ -16,7 +15,7 @@ interface CodeProps {
 }
 
 export class ArticleCode extends React.PureComponent<CodeProps> {
-    private codeRef = createRef<HTMLPreElement>();
+    private codeRef = React.createRef<HTMLPreElement>();
 
     componentDidMount() {
         if (!this.codeRef.current) {

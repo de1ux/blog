@@ -1,10 +1,11 @@
-import { Card, CardContent, CardHeader } from '@material-ui/core';
+import Card from '@material-ui/core/Card/Card';
+import CardContent from '@material-ui/core/CardContent/CardContent';
+import CardHeader from '@material-ui/core/CardHeader/CardHeader';
 import * as React from 'react';
 import * as ReactMarkdown from 'react-markdown';
 import { RouteProps } from 'react-router';
 import { ArticleCode } from './ArticleCode';
 import { ArticleImage } from './ArticleImage';
-import { Distortion } from './Distortion';
 import { loadPostFromLocation, Post } from './Posts';
 
 interface ArticleProps {
@@ -40,7 +41,6 @@ export class Article extends React.Component<ArticleProps & RouteProps, ArticleS
                         'code': ArticleCode,
                         'image': ArticleImage
                     }} source={this.state.post.text}/>
-                    <Distortion text='some words'/>
                 </CardContent>
             </div>}
         </Card>;

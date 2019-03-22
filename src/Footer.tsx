@@ -1,4 +1,5 @@
-import { Card, Typography } from '@material-ui/core';
+import Card from '@material-ui/core/Card/Card';
+import Typography from '@material-ui/core/Typography/Typography';
 import * as React from 'react';
 
 export const withFooter = <P extends object>(Component: React.ComponentType<P>) => {

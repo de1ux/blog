@@ -26,7 +26,7 @@ module.exports = function makeWebpackConfig() {
             {test: /\.tsx?$/, loader: "awesome-typescript-loader"},
             {test: /\.css$/, loader: "style-loader!css-loader"},
             {
-                test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
+                test: /\.(png|jpg|gif)$/,
                 loader: 'file-loader'
             }
         ]
@@ -36,8 +36,9 @@ module.exports = function makeWebpackConfig() {
         new CopyWebpackPlugin([
             {from: 'tutorials', to: 'raw/tutorials'},
             {from: 'opinions', to: 'raw/opinions'},
-            {from: 'images', to: 'images'}
+            {from: 'images', to: 'images'},
         ]),
+        new BundleAnalyzerPlugin()
     ];
 
     config.optimization = {

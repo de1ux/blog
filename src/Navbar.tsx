@@ -1,4 +1,7 @@
-import { Card, CardHeader, Grid } from '@material-ui/core';
+
+import Card from '@material-ui/core/Card/Card';
+import CardHeader from '@material-ui/core/CardHeader/CardHeader';
+import Grid from '@material-ui/core/Grid/Grid';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 

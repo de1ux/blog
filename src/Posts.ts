@@ -36,16 +36,16 @@ const postMetas: Array<PostMeta> = [
         urlTitle: 'grpc-with-typescript-and-go-part-3',
         type: PostType.Tutorial,
     },
-    {
-        humanTitle: 'Wiv.js for subtle trolling',
-        urlTitle: 'wiv-js-for-subtle-trolling',
-        type: PostType.Tutorial,
-    },
     /*{ // TODO - revisit with streaming, caching etc
         humanTitle: 'Part 4 - Building a webapp for pod logs: gRPC with Typescript and Go',
         urlTitle: 'grpc-with-typescript-and-go-part-4',
         type: PostType.Tutorial,
     },*/
+    {
+        humanTitle: 'Building a wristwatch [WARNING- LOTS OF GIFS]',
+        urlTitle: 'building-a-wristwatch',
+        type: PostType.Tutorial,
+    },
     {
         humanTitle: 'A year of DevOps: Musings from a software developer',
         urlTitle: 'what-i-learned-from-a-year-of-devops',
