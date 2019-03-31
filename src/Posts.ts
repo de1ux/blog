@@ -42,7 +42,7 @@ const postMetas: Array<PostMeta> = [
         type: PostType.Tutorial,
     },*/
     {
-        humanTitle: 'Building a wristwatch [WARNING- LOTS OF GIFS]',
+        humanTitle: 'Building a wristwatch [ BANDWIDTH WARNING - lots of gifs ]',
         urlTitle: 'building-a-wristwatch',
         type: PostType.Tutorial,
     },

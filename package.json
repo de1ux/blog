@@ -58,7 +58,7 @@
     ]
   },
   "scripts": {
-    "release": "webpack -p",
+    "release": "rm -rf dist && mkdir -p dist && cp index.html dist/index.html && webpack -p",
     "start": "webpack-dev-server",
     "test": "jest",
     "testDebug": "node --inspect-brk ./node_modules/.bin/jest --runInBand"

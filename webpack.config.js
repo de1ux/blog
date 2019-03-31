@@ -13,9 +13,6 @@ module.exports = function makeWebpackConfig() {
         path: __dirname + "/dist"
     };
 
-    // Enable sourcemaps for debugging webpack's output.
-    config.devtool = 'eval-source-map';
-
     config.resolve = {
         // Add '.ts' and '.tsx' as resolvable extensions.
         extensions: [".ts", ".tsx", ".js", ".json"]
@@ -25,10 +22,6 @@ module.exports = function makeWebpackConfig() {
         rules: [
             {test: /\.tsx?$/, loader: "awesome-typescript-loader"},
             {test: /\.css$/, loader: "style-loader!css-loader"},
-            {
-                test: /\.(png|jpg|gif)$/,
-                loader: 'file-loader'
-            }
         ]
     };
 
@@ -37,22 +30,10 @@ module.exports = function makeWebpackConfig() {
             {from: 'tutorials', to: 'raw/tutorials'},
             {from: 'opinions', to: 'raw/opinions'},
             {from: 'images', to: 'images'},
+            {from: 'files', to: 'files'},
         ]),
-        new BundleAnalyzerPlugin()
+        //new BundleAnalyzerPlugin()
     ];
-
-    config.optimization = {
-        splitChunks: {
-            cacheGroups: {
-                vendor: {
-                    chunks: 'initial',
-                    name: 'vendor',
-                    test: /[\\/]node_modules[\\/]/,
-                    enforce: true
-                },
-            }
-        }
-    };
 
     config.devServer = {
         host: '0.0.0.0',
