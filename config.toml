@@ -1,0 +1,4 @@
+baseURL = "https://de1ux.com/"
+languageCode = "en-us"
+title = "My New Hugo Site"
+theme = "classic"
