@@ -1,9 +1,9 @@
 ---
-title: "Grpc With Typescript and Go Part 2"
+title: "gRPC with Typescript and Go Part 2"
 date: 2018-12-22T23:01:00-06:00
 ---
 
-In [part 1](/tutorials/grpc-with-typescript-and-go-part-1) we:
+In [part 1](/posts/grpc-with-typescript-and-go-part-1) we:
 
 * defined a gRPC service (`LogService`)
 * generated the server and client with `protoc`
@@ -136,4 +136,4 @@ Which outputs
 ...
 {{< / highlight >}}
 
-[Next we'll build a Typescript client to tie all the pieces together and produce a working app](/tutorials/grpc-with-typescript-and-go-part-3)
+[Next we'll build a Typescript client to tie all the pieces together and produce a working app](/posts/grpc-with-typescript-and-go-part-3)

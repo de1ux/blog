@@ -67,15 +67,17 @@ I fried both the screen and the board in this attempt.
 
 After the frying, it still works well if you can communicate time through one functioning row of white pixels. Not pictured is the deader-than-a-doornail Teensy 3.2.
 
+_Score_ **(1/10)**: Teensy's ain't cheap
+
 ## Attempt 5
 
 Equipped with a greater respect for the sensitivity of microelectronics, I married an Adafruit Feather with the same Sharp Memory LCD from Attempt 3.
 
 ![asdf](/images/baw-5.gif)
 
-And it turned out pretty good!
-
 ![asdf](/images/baw-6.gif)
+
+_Score_ **(7/10)**: turned out pretty good!
 
 ## What's next
 
@@ -83,6 +85,6 @@ Etching my own PCBs, or paying someone to print some PCBs for me.
 
 All of these attempts point out the painfully obvious -- development boards (Arduino, Feather, etc) don't scale down to a wrist very well. And while my soldering skills are getting better, stacking integrated circuits and microcontrollers make wiring options limited.
 
-And I want to experiment with the ATtiny85 some more.
+..and I want to experiment with the ATtiny85 some more.
 
 Stay tuned!

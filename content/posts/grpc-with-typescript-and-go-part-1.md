@@ -1,5 +1,5 @@
 ---
-title: "Grpc With Typescript and Go Part 1"
+title: "gRPC with Typescript and Go Part 1"
 date: 2018-11-14T4:49:00-06:00
 ---
 
@@ -119,4 +119,4 @@ func main() {
 
 ### Next
 
-[In the next part, we'll write something useful for the GetLogs endpoint and build the frontend.](/tutorials/grpc-with-typescript-and-go-part-2)
+[In the next part, we'll write something useful for the GetLogs endpoint and build the frontend.](/posts/grpc-with-typescript-and-go-part-2)

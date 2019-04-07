@@ -1,7 +1,7 @@
 ---
-title: home
+title: Home
 ---
 
-# de1ux
+# De1ux
 
 ## _Learning how to blog in ~~2018~~ 2019_

@@ -1,6 +1,6 @@
 baseURL = "/"
 languageCode = "en-us"
-title = "de1ux"
+title = "De1ux"
 theme = "xmin"
 
 
@@ -8,25 +8,5 @@ theme = "xmin"
     post = "/post/:year/:month/:day/:slug/"
     note = "/note/:year/:month/:day/:slug/"
 
-[[menu.main]]
-    name = "home"
-    url = "/"
-    weight = 1
-[[menu.main]]
-    name = "about"
-    url = "/about/"
-    weight = 2
-[[menu.main]]
-    name = "categories"
-    url = "/categories/"
-    weight = 3
-[[menu.main]]
-    name = "tags"
-    url = "/tags/"
-    weight = 4
-[[menu.main]]
-    name = "rss"
-    url = "/index.xml"
-
 [params]
-    footer = "Send me [an email](mailto:evans.nathan.j@gmail.com) to get notified of new posts!"
+    footer = "Send me [an email](mailto:evans.nathan.j@gmail.com) or [subscribe to RSS](index.xml) to get notified of new posts!"

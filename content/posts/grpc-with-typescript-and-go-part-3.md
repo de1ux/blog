@@ -1,9 +1,9 @@
 ---
-title: "Grpc With Typescript and Go Part 3"
+title: "gRPC with Typescript and Go Part 3"
 date: 2018-12-28T4:00:00-06:00
 ---
 
-In [part 2](/tutorials/grpc-with-typescript-and-go-part-2) we implemented the service. Let's write a Typescript client to complete the app.
+In [part 2](/posts/grpc-with-typescript-and-go-part-2) we implemented the service. Let's write a Typescript client to complete the app.
 
 Geting the Typescript setup out of the way
 {{< highlight bash >}}
