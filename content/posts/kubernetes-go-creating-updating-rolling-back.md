@@ -1,7 +1,6 @@
 ---
 title: "Kubernetes Go Creating Updating Rolling Back"
-date: 2019-04-06T18:43:25-06:00
-draft: true
+date: 2018-11-23T1:34:00-06:00
 ---
 
 ### WARNING

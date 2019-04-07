@@ -1,7 +1,6 @@
 ---
 title: "Grpc With Typescript and Go Part 1"
-date: 2019-04-06T18:28:11-06:00
-draft: true
+date: 2018-11-14T4:49:00-06:00
 ---
 
 One of the best tools for diagnosing failed Kubernetes deployments is with the log viewer, `kubectl logs`.

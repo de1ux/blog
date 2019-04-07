@@ -1,7 +1,6 @@
 ---
 title: "Grpc With Typescript and Go Part 2"
-date: 2019-04-06T18:37:14-06:00
-draft: true
+date: 2018-12-22T23:01:00-06:00
 ---
 
 In [part 1](/tutorials/grpc-with-typescript-and-go-part-1) we:

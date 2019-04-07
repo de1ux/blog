@@ -1,7 +1,6 @@
 ---
 title: "What I Learned From a Year of Devops"
-date: 2019-04-06T18:47:26-06:00
-draft: true
+date: 2018-11-25T16:51:00-06:00
 ---
 
 Last year I had the opportunity to join DevOps, and with it, a whole new class

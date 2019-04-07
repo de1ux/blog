@@ -1,14 +1,13 @@
 ---
 title: "Building a Wristwatch"
 date: 2019-04-06T18:46:40-06:00
-draft: true
 ---
 
 In my personal life, I like collecting watches.
 
 Usually I go after cheap quartz watches. The weirder the better.
 
-![weird](https://images-na.ssl-images-amazon.com/images/I/71GdvsCpAjL._UL1500_.jpg)
+{{< figure src="https://images-na.ssl-images-amazon.com/images/I/71GdvsCpAjL._UL1500_.jpg" width="200" >}}
 
 How else would you let others know your ***extremeness*** and ***athleticism***?
 
@@ -20,7 +19,7 @@ Enjoy
 
 The first microcontroller I chose was the ATtiny85. Praised for its low power consumption, this 8-bit MCU sports *512B* of memory and either SPI or I2C out.
 
-![so cute](https://cdn.sparkfun.com//assets/parts/2/9/7/0/09378-1.jpg)
+{{< figure src="https://cdn.sparkfun.com//assets/parts/2/9/7/0/09378-1.jpg" width="200" >}}
 
 And it's a pleasure to program. If you have an Arduino Uno laying around, wire it up ([diagram](https://www.hackster.io/arjun/programming-attiny85-with-arduino-uno-afb829)) and upload a program.
 

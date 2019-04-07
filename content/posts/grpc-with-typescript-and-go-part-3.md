@@ -1,7 +1,6 @@
 ---
 title: "Grpc With Typescript and Go Part 3"
-date: 2019-04-06T18:39:48-06:00
-draft: true
+date: 2018-12-28T4:00:00-06:00
 ---
 
 In [part 2](/tutorials/grpc-with-typescript-and-go-part-2) we implemented the service. Let's write a Typescript client to complete the app.
@@ -119,4 +118,5 @@ client.getLogs(request, (err: ServiceError | null, logs: GetLogsResponse | null)
 
 Which outputs
 
-![hi from logs](/images/gwtagp3-1.png)
+
+{{< figure src="/images/gwtagp3-1.png" width="600" >}}
