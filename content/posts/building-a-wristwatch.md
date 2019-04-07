@@ -1,6 +1,6 @@
 ---
-title: "Building a Wristwatch"
-date: 2019-04-06T18:46:40-06:00
+title: "Building a wristwatch"
+date: 2019-03-22T3:22:00-06:00
 ---
 
 In my personal life, I like collecting watches.

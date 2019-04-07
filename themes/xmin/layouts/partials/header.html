@@ -3,7 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{if .IsHome }}
+    <title>{{ .Title }}</title>
+    {{else}}
     <title>{{ .Title }} | {{ .Site.Title }}</title>
+    {{ end }}
+
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}" />
     <link rel="stylesheet" href="{{ "/css/fonts.css" | relURL }}" />
@@ -11,11 +16,13 @@
   </head>
 
   <body>
-    <nav>
-    <ul class="menu">
-      {{ range .Site.Menus.main }}
-      <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
-      {{ end }}
-    </ul>
-    <hr/>
-    </nav>
+    <div class=title>
+      <p class="primary">
+        <a href="/">de1ux</a>
+      </p>
+
+      <p class="secondary">
+        Learning how to blog in <del>2018</del> 2019
+      </p>
+    </div>
+    <hr />

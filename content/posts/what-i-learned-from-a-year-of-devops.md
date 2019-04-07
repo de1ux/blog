@@ -20,6 +20,7 @@ to write code that plays nicely with mission-critical infrastructure adds anothe
 complexity.
 
 Some of the symptoms of growing as a Developer in DevOps:
+
 * Having an exit strategy for when things ***will*** go wrong
     * If the database restore logic fails halfway through, what will the code do?
     * How should this be structured to easily know the outcome, good or bad?
@@ -46,6 +47,7 @@ your coding time.
 
 The following snippet is about tech leads, but it felt accurate in my early experience with
 DevOps.
+
 > After a few months into my first tech lead role, I was becoming increasingly anxious. It seemed like I needed to do a lot of things that didn't feel productive. Less and less of my time was spent pairing and writing code as I was busy in meetings, replying to emails, answering questions from stakeholders, etc. I felt as if every story with my name on it wasn't progressing. My response was to sacrifice my personal time to make up for what I'd missed due to these distractions (as I perceived them). I quickly became overworked.
 >
 > What I hadn't realized when I moved from a techie to tech lead, was how my responsibilities and metrics for success...had changed.

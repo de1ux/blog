@@ -1,5 +1,5 @@
 ---
-title: "Kubernetes Go Creating Updating Rolling Back"
+title: "Kubernetes client-go: Updating and rolling back a deployment"
 date: 2018-11-23T1:34:00-06:00
 ---
 
@@ -19,14 +19,13 @@ Kubernetes provides an excellent [compatibility matrix](https://github.com/kuber
 Currently, the client does not play well with [dep](https://github.com/golang/dep), but the authors have done a great writeup about the [install options currently available](https://github.com/kubernetes/client-go/blob/master/INSTALL.md).
 
 Here's a quick and dirty build script ganked from their INSTALL.md:
-{{< highlight basg >}}
-go get -v github.com/tools/godep
-
-go get -v k8s.io/client-go/...
-pushd $GOPATH/src/k8s.io/client-go
-git checkout v6.0.0
-godep restore ./...
-popd
+{{< highlight bash >}}
+$ go get -v github.com/tools/godep
+$ go get -v k8s.io/client-go/...
+$ pushd $GOPATH/src/k8s.io/client-go
+$ git checkout v6.0.0
+$ godep restore ./...
+$ popd
 {{< / highlight >}}
 
 ### Create a Kubernetes clientset

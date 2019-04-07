@@ -1,6 +1,6 @@
 baseURL = "/"
 languageCode = "en-us"
-title = "De1ux"
+title = "de1ux"
 theme = "xmin"
 
 [params]
