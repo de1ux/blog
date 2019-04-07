@@ -3,10 +3,5 @@ languageCode = "en-us"
 title = "De1ux"
 theme = "xmin"
 
-
-[permalinks]
-    post = "/post/:year/:month/:day/:slug/"
-    note = "/note/:year/:month/:day/:slug/"
-
 [params]
     footer = "Send me [an email](mailto:evans.nathan.j@gmail.com) or [subscribe to RSS](index.xml) to get notified of new posts!"
