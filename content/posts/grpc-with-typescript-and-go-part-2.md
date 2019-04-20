@@ -1,6 +1,7 @@
 ---
 title: "gRPC with Typescript and Go Part 2"
 date: 2018-12-22T23:01:00-06:00
+tags: ["go", "client-go", "kubernetes", "grpc", "typescript"]
 ---
 
 In [part 1](/posts/grpc-with-typescript-and-go-part-1) we:

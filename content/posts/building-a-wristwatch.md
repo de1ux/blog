@@ -1,6 +1,7 @@
 ---
 title: "Building a wristwatch"
 date: 2019-03-22T3:22:00-06:00
+tags: ["microcontroller", "watch", "arduino"]
 ---
 
 In my personal life, I like collecting watches.

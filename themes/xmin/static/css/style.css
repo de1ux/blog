@@ -10,7 +10,6 @@ body {
 .menu li { display: inline-block; }
 .article-meta, .menu a {
   text-decoration: none;
-  background: #eee;
   padding: 5px;
   border-radius: 5px;
 }
@@ -28,8 +27,9 @@ pre {
   box-shadow: 5px 5px 5px #eee;
   padding: 1em;
   overflow-x: auto;
+  background: #d4d0d0;
 }
-code { background: #f9f9f9; }
+code { background: #d4d0d0; }
 pre code { background: none; }
 
 /* misc elements */
@@ -50,7 +50,10 @@ table thead th { border-bottom: 1px solid #ddd; }
 th, td { padding: 5px; }
 thead, tfoot, tr:nth-child(even) { background: #eee; }
 
-.title p {
+#title {
+}
+
+#title p {
   margin: 0;
 }
 

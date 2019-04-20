@@ -1,6 +1,7 @@
 ---
 title: "Kubernetes client-go: Updating and rolling back a deployment"
 date: 2018-11-23T1:34:00-06:00
+tags: ["go", "client-go", "kubernetes"]
 ---
 
 ### WARNING

@@ -1,6 +1,7 @@
 ---
 title: "gRPC with Typescript and Go Part 1"
 date: 2018-11-14T4:49:00-06:00
+tags: ["go", "client-go", "kubernetes", "grpc", "typescript"]
 ---
 
 One of the best tools for diagnosing failed Kubernetes deployments is with the log viewer, `kubectl logs`.

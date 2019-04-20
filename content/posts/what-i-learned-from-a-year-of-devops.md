@@ -1,6 +1,7 @@
 ---
 title: "What I Learned From a Year of DevOps"
 date: 2018-11-29T2:32:00-06:00
+tags: ["devops", "opinions"]
 ---
 
 Last year I had the opportunity to join DevOps, and with it, a whole new class
