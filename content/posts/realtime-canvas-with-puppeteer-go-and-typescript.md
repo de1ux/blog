@@ -1,5 +1,5 @@
 ---
-title: "Realtime Canvas With Go and Typescript"
+title: "Realtime Canvas With Puppeteer, Go and Typescript"
 date: 2019-04-19T22:29:15-06:00
 tags: ["go", "canvas", "grpc", "typescript", "testing", "realtime", "puppeteer"]
 ---
@@ -58,9 +58,11 @@ The source is [here](https://gitlab.com/de1ux/realtime-canvas-editor).
 
 For fun most of all -- I love the HTML5 canvas.
 
+But also because we'll need some "real" code for upcoming blog posts.
+
 This is a reminder about how hard session management is. I've made a couple[^1] sins[^2] just to be done in an afternoon. Even languages like Go let you compile a gun to shoot yourself in the foot with.
 
-Next time we'll expand on this!
+Stay tuned!
 
 [^1]: [Memory leak -- sessions are never reaped](https://gitlab.com/de1ux/realtime-canvas-editor/blob/master/server/main.go#L48)
 [^2]: [Race condition on new sessions](https://gitlab.com/de1ux/realtime-canvas-editor/blob/master/server/main.go#L63)
