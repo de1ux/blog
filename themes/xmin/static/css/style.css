@@ -14,7 +14,10 @@ body {
   border-radius: 5px;
 }
 .menu, .article-meta, footer { text-align: center; }
-.title { font-size: 1.1em; }
+.title {
+  font-size: 1.1em;
+  line-height: 35px;
+}
 footer a { text-decoration: none; }
 hr {
   border-style: dashed;
@@ -29,7 +32,10 @@ pre {
   overflow-x: auto;
   background: #d4d0d0;
 }
-code { background: #d4d0d0; }
+code {
+  background: #f2f3cd;
+  padding: 4px;
+}
 pre code { background: none; }
 
 /* misc elements */
@@ -50,11 +56,12 @@ table thead th { border-bottom: 1px solid #ddd; }
 th, td { padding: 5px; }
 thead, tfoot, tr:nth-child(even) { background: #eee; }
 
-#title {
-}
-
 #title p {
   margin: 0;
+}
+
+figure img {
+  border: 1px solid #d4d4d4;
 }
 
 .primary {
@@ -69,12 +76,27 @@ thead, tfoot, tr:nth-child(even) { background: #eee; }
 
 .primary a {
   text-decoration: none;
+  color: black;
 }
 
 .secondary {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 0.875rem;
+  line-height: 1.46429em;
+}
+
+.secondary-title {
   display: block;
   text-align: center;
   color: rgba(0, 0, 0, 0.54);
   font-size: 0.875rem;
   line-height: 1.46429em;
+}
+
+#list {
+  list-style: none;
+}
+
+#list span {
+  padding-right: 10px;
 }

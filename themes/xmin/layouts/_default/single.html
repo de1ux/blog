@@ -2,7 +2,7 @@
 <div class="article-meta">
 <h1><span class="title">{{ .Title | markdownify }}</span></h1>
 {{ with .Params.author }}<h2 class="author">{{ . }}</h2>{{ end }}
-{{ if (gt .Params.date 0) }}<h2 class="date">{{ .Date.Format "01/02/2006" }}</h2>{{ end }}
+{{ if (gt .Params.date 0) }}<h2 class="secondary">{{ .Date.Format "1/02/2006" }}</h2>{{ end }}
 </div>
 
 <main>

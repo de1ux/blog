@@ -6,10 +6,10 @@
 
 {{ .Content }}
 
-<ul>
+<ul id="list">
   {{ range (where .Data.Pages "Section" "!=" "") }}
   <li>
-    <span class="date">{{ .Date.Format "01/02/2006" }}</span>
+    <span class="date secondary">{{ .Date.Format "01/02/2006" }}</span>
     <a href="{{ .URL }}">{{ .Title | markdownify }}</a>
   </li>
   {{ end }}
