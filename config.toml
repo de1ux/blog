@@ -3,5 +3,7 @@ languageCode = "en-us"
 title = "de1ux"
 theme = "xmin"
 
+pygmentsUseClasses=true
+
 [params]
     footer = "Send me [an email](mailto:evans.nathan.j@gmail.com) or [subscribe to RSS](index.xml) to get notified of new posts!"
