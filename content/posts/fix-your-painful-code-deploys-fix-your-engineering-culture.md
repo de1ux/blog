@@ -92,4 +92,4 @@ Or one from me
 
 > "Fix your painful code deploys, fix your Engineering culture"
 
-> Evans, N., (20189). Text on a webpage
+> Evans, N., (2019). Text on a webpage
