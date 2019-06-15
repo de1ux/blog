@@ -100,3 +100,9 @@ figure img {
 #list span {
   padding-right: 10px;
 }
+
+figcaption {
+    font-style: italic;
+    font-size: 12px;
+    text-align: center;
+}
