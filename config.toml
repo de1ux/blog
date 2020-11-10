@@ -1,9 +1,9 @@
 baseURL = "/"
 languageCode = "en-us"
 title = "de1ux"
-theme = "xmin"
+theme = ["hugo-video", "xmin"]
 
 pygmentsUseClasses=true
 
 [params]
-    footer = "Send me [an email](mailto:evans.nathan.j@gmail.com) or [subscribe to RSS](index.xml) to get notified of new posts!"
+    footer = "Send me [an email](mailto:nathan@de1ux.com), sign up on [the mailing list](http://eepurl.com/hio_5z), or [subscribe to RSS](index.xml) to get notified of new posts!"
